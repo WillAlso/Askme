@@ -5,9 +5,9 @@
 
 <mapper namespace="UserMapper">
     <select id="findUserById" resultType="com.whut.bean.UserInfo">
-      select * from user where userid = #{userid}
+      select * from users where userid = #{userid}
    </select>
     <select id="findAllUser" resultType="com.whut.bean.UserInfo">
-        SELECT * FROM user
+        SELECT * FROM users
     </select>
 </mapper>

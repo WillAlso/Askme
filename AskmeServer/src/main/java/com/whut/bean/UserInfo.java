@@ -3,13 +3,15 @@ package com.whut.bean;
 public class UserInfo {
     private int userid;
     private String username;
+    private String password;
 
     public UserInfo() {
     }
 
-    public UserInfo(int userid, String username) {
+    public UserInfo(int userid, String username, String password) {
         this.userid = userid;
         this.username = username;
+        this.password = password;
     }
 
     @Override
@@ -17,7 +19,16 @@ public class UserInfo {
         return "UserInfo{" +
                 "userid=" + userid +
                 ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 '}';
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public int getUserid() {

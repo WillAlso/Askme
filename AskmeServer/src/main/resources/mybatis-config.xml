@@ -6,9 +6,9 @@
 <configuration>
     <properties>
         <property name="driver" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&amp;characterEncoding=utf-8&amp;allowMultiQueries=true"/>
+        <property name="url" value="jdbc:mysql://47.100.78.254:3306/android_wendao?useUnicode=true&amp;characterEncoding=utf-8&amp;allowMultiQueries=true"/>
         <property name="username" value="root"/>
-        <property name="password" value="123"/>
+        <property name="password" value="123456"/>
     </properties>
 
     <!-- 环境，可以配置多个，default：指定采用哪个环境 -->
@@ -20,9 +20,9 @@
             <!-- 数据源，池类型的数据源 -->
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.jdbc.Driver" />
-                <property name="url" value="jdbc:mysql://127.0.0.1:3306/test" />
+                <property name="url" value="jdbc:mysql://47.100.78.254:3306/android_wendao" />
                 <property name="username" value="root" />
-                <property name="password" value="123" />
+                <property name="password" value="123456" />
             </dataSource>
         </environment>
         <environment id="development">
@@ -40,5 +40,6 @@
 
     <mappers>
         <mapper resource="mapper/UserMapper.xml"></mapper>
+        <mapper resource="mapper/LoginMapper.xml"></mapper>
     </mappers>
 </configuration>

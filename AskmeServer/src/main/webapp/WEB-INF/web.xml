@@ -26,14 +26,32 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
-  <!--<servlet>-->
-    <!--<servlet-name>finduser</servlet-name>-->
-    <!--<servlet-class>com.whut.service.UserInfoImpl</servlet-class>-->
-  <!--</servlet>-->
-  <!--<servlet-mapping>-->
-    <!--<servlet-name>finduser</servlet-name>-->
-    <!--<url-pattern>/finduser</url-pattern>-->
-  <!--</servlet-mapping>-->
+  <servlet>
+  <servlet-name>sayhello</servlet-name>
+    <servlet-class>com.whut.service.sayhello</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>sayhello</servlet-name>
+    <url-pattern>/sayhello</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>sendmail</servlet-name>
+    <servlet-class>com.whut.service.SendMail</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>sendmail</servlet-name>
+    <url-pattern>/sendmail</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>loginuser</servlet-name>
+    <servlet-class>com.whut.service.LoginUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>loginuser</servlet-name>
+    <url-pattern>/loginuser</url-pattern>
+  </servlet-mapping>
 
 </web-app>
         
