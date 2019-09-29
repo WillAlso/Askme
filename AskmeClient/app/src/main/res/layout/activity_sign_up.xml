@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/text_signup_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="用户名"/>
+
+    <EditText
+        android:id="@+id/text_signup_mail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="用户邮箱"/>
+
+    <EditText
+        android:id="@+id/text_signup_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="用户密码"/>
+
+    <EditText
+        android:id="@+id/text_signup_repassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="确认密码"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+        <EditText
+            android:id="@+id/text_signup_vercode"
+            android:layout_weight="5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="验证码"/>
+        <Button
+            android:id="@+id/btn_signup_sendcode"
+            android:layout_weight="1"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="获取"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1">
+            <Button
+                android:id="@+id/btn_signup_exit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="返回"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1">
+            <Button
+                android:id="@+id/btn_signup_register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="注册"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
