@@ -5,6 +5,6 @@ package com.whut.jarvis.askmeclient.bean;
  */
 
 public class ServerInfo {
-    public static final String ip_add = "192.168.1.105";
-    public static final String base_url = "http://192.168.1.105:8080";
+    public static final String ip_add = "10.120.74.119";
+    public static final String base_url = "http://10.120.74.119:8080";
 }

@@ -50,6 +50,26 @@
             android:text="获取"/>
     </LinearLayout>
 
+    <RadioGroup
+        android:id="@+id/radio_group_usertype"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/radio_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="咨询者"/>
+        <RadioButton
+            android:id="@+id/radio_server"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="服务者"/>
+    </RadioGroup>
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"

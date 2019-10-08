@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.whut.jarvis.askmeclient.bean.ServerInfo;
@@ -35,6 +36,8 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText text_signup_password = null;
     private EditText text_signup_repassword = null;
     private EditText text_signup_vercode = null;
+    private RadioButton radio_user = null;
+    private RadioButton radio_server = null;
     private Button btn_signup_sendcode = null;
     private Button btn_signup_exit = null;
     private Button btn_signup_register = null;
@@ -54,7 +57,8 @@ public class SignUpActivity extends AppCompatActivity {
         btn_signup_sendcode = findViewById(R.id.btn_signup_sendcode);
         btn_signup_exit = findViewById(R.id.btn_signup_exit);
         btn_signup_register = findViewById(R.id.btn_signup_register);
-
+        radio_user = findViewById(R.id.radio_user);
+        radio_server = findViewById(R.id.radio_server);
         signUpUtil = new SignUpUtil();
         btn_signup_sendcode.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,6 +109,12 @@ public class SignUpActivity extends AppCompatActivity {
                 String password = text_signup_password.getText().toString().trim();
                 String repassword = text_signup_repassword.getText().toString().trim();
                 String vercode = text_signup_vercode.getText().toString().trim();
+                int identity = 0;
+                if (radio_server.isChecked()){
+                    identity = 1;
+                } else {
+                    identity = 0;
+                }
                 if (username == null || TextUtils.isEmpty(username) ||
                         email == null || TextUtils.isEmpty(email) ||
                         password == null || TextUtils.isEmpty(password) ||
@@ -121,7 +131,7 @@ public class SignUpActivity extends AppCompatActivity {
                     Toast.makeText(SignUpActivity.this,"密码不一致",Toast.LENGTH_SHORT).show();
                     return;
                 }
-                signUpUtil.signUpUser(username,email,password)
+                signUpUtil.signUpUser(username,email,password,identity)
                     .observeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(new Observer<String>() {
@@ -132,7 +142,10 @@ public class SignUpActivity extends AppCompatActivity {
 
                         @Override
                         public void onNext(String s) {
-
+//                            Toast.makeText(SignUpActivity.this,s,Toast.LENGTH_SHORT).show();
+                            if (s.equals("200")){
+                                finish();
+                            }
                         }
 
                         @Override

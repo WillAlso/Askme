@@ -1,13 +1,13 @@
 package com.whut.jarvis.askmeclient.utils;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
+import com.google.gson.reflect.TypeToken;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.whut.jarvis.askmeclient.bean.ServerInfo;
 
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
@@ -73,16 +73,26 @@ public class SignUpUtil {
         });
     }
 
-    public Observable<String> signUpUser(final String username, final String email, final String password){
+    public Observable<String> signUpUser(final String username, final String email, final String password, final int identity){
         return Observable.create(new ObservableOnSubscribe<String>() {
             @Override
-            public void subscribe(ObservableEmitter<String> emitter) throws Exception {
+            public void subscribe(final ObservableEmitter<String> emitter) throws Exception {
                 SendRequest sendRequest = retrofit.create(SendRequest.class);
-                Call<ResponseBody> call = sendRequest.signUpUser(username,email,password);
+                Call<ResponseBody> call = sendRequest.signUpUser(username,email,password,identity);
                 call.enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-
+                        Gson gson = new Gson();
+                        HashMap<String,String> map = new HashMap<String,String>();
+                        Type type = new TypeToken<HashMap<String, String>>() {}.getType();
+                        try {
+                            map = gson.fromJson(response.body().string(),type);
+                            String statuscode = map.get("statuscode");
+                            emitter.onNext(statuscode);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        emitter.onComplete();
                     }
 
                     @Override

@@ -4,4 +4,5 @@ import com.whut.bean.UserInfo;
 
 public interface LoginDao {
     UserInfo loginUser(String username);
+    void signUpUser(UserInfo userInfo);
 }

@@ -4,14 +4,20 @@ public class UserInfo {
     private int userid;
     private String username;
     private String password;
+    private int status;
+    private String description;
+    private int identity;
 
     public UserInfo() {
     }
 
-    public UserInfo(int userid, String username, String password) {
+    public UserInfo(int userid, String username, String password, int status, String description, int identity) {
         this.userid = userid;
         this.username = username;
         this.password = password;
+        this.status = status;
+        this.description = description;
+        this.identity = identity;
     }
 
     @Override
@@ -20,7 +26,34 @@ public class UserInfo {
                 "userid=" + userid +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", status=" + status +
+                ", description='" + description + '\'' +
+                ", identity=" + identity +
                 '}';
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getIdentity() {
+        return identity;
+    }
+
+    public void setIdentity(int identity) {
+        this.identity = identity;
     }
 
     public String getPassword() {
